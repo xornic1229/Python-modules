@@ -177,4 +177,3 @@ if __name__ == "__main__":
     manager.print_scores()
 
 
-if __name == 

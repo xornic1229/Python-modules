@@ -1,15 +1,37 @@
-def ft_first_exception():
-    """Exercise 0: First Exception Handling"""
+def check_temperature(temp_str):
     try:
-        # Intentionally raise an exception to demonstrate handling
-        raise ValueError("This is a sample exception for demonstration.")
-    except ValueError as e:
-        print(f"Caught an exception: {e}")
+        temp = int(temp_str)
+
+        if temp < 0:
+            print(f"Error: {temp}°C is too cold for plants (min 0°C)")
+            return None
+        if temp > 40:
+            print(f"Error: {temp}°C is too hot for plants (max 40°C)")
+            return None
+        return temp
+    except:
+        print(f"Error: '{temp_str}' is not a valid number")
+        return None
+
+def test_temperature_input():
+    print("=== Garden Temperature Checker ===")
+
+    print("Testing temperature: 25")
+    temp = check_temperature("25")
+    if temp is not None:
+        print(f"Temperature {temp}°C is perfect for plants!")
+
+    print("Testing temperature: abc")
+    check_temperature("abc")
+
+    print("Testing temperature: 100")
+    check_temperature("100")
+
+    print("Testing temperature:-50")
+    check_temperature("-50")
+
+    print("All tests completed - program didn't crash!")
+
+
 if __name__ == "__main__":
-    ft_first_exception()
-Compare this snippet from Python_Module_00/test_all_exercises.py:
-def test_ex0():
-    """Test Exercise 0: ft_hello_garden"""
-    print_separator("Exercise 0: ft_hello_garden")
-    ft_hello_garden()
-        
+    test_temperature_input()
